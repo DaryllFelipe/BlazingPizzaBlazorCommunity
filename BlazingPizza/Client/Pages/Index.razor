@@ -31,7 +31,7 @@
             @foreach (var ConfiguredPizza in Order.Pizzas)
             {
                 <ConfigurePizzaItem Pizza="ConfiguredPizza"
-                                     OnRemoved="@(() => RemoveConfigurePizza(ConfiguredPizza))" />
+                                    OnRemoved="@(() => RemoveConfigurePizza(ConfiguredPizza))" />
             }
         </div>
     }
@@ -49,3 +49,12 @@
         </button>
     </div>
 </div>
+
+
+@if (ShowingConfigureDialog)
+{
+    <ConfigurePizzaDialog Pizza="ConfiguringPizza"
+                          OnCancel="CancelConfigurePizzaDialog"
+                          OnConfirm="ConfirmConfigurePizzaDialog"
+                          />
+}
